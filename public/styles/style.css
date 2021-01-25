@@ -1,0 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+body {
+    font-family: 'Fraunces', serif;
+}
+
+header {
+    top: 0;
+    padding: 20px 0;
+    margin:auto;
+    width: 100%;
+    font-size: large;
+    color:darkcyan;
+    text-align: center;
+}
+
+#container {
+    background:rgb(198, 240, 253);
+    display: flex;
+    flex-flow: column;
+    justify-content:flex-start;
+    align-items: center;
+    align-content: flex-start;
+    padding: 30px 30px;
+    font-size: x-large;   
+}
+
+#container div{
+    /* background: lightgreen; */
+    margin-bottom: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+#time {
+    font-family: 'Roboto Mono', monospace;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 16px;
+}
