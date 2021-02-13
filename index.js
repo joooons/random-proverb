@@ -10,8 +10,6 @@ startTheClock()
 
 
 
-app.use(express.static(publicDirectoryPath))
-
 if (process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
         if (req.header('x-forwarded-proto') !== 'https') {
@@ -21,6 +19,8 @@ if (process.env.NODE_ENV === 'production') {
         }
     })
 } 
+
+app.use(express.static(publicDirectoryPath))
 
 
 app.get('/verse', (req, res) => {
