@@ -8,15 +8,26 @@ const publicDirectoryPath = path.join(__dirname, "./public")
 
 startTheClock()
 
+
+
+app.use(express.static(publicDirectoryPath))
+
 if (process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
-        if (req.url === '/') {
+        if (req.header('x-forwarded-proto') !== 'https') {
             res.redirect(`https://${req.header('host')}${req.url}`)
-        } else next()
+        } else {
+            next()
+        }
+    })
+} else {
+    app.use((req, res, next) => {
+        sdfsdf
     })
 }
 
-app.use(express.static(publicDirectoryPath))
+
+
 
 app.get('/verse', (req, res) => {
     res.send(currentVerse)
