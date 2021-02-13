@@ -34,7 +34,7 @@ footer {
     left: 0;
     right: 0;
     font-size: medium;
-    padding: 20px;
+    padding: 20px 40px;
     display: flex;
     flex-flow: row;
     justify-content: space-between;

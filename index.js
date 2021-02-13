@@ -8,10 +8,22 @@ const publicDirectoryPath = path.join(__dirname, "./public")
 
 startTheClock()
 
+if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+        if (req.url === '/') {
+            res.redirect(`https://${req.header('host')}${req.url}`)
+        } else next()
+    })
+}
+
 app.use(express.static(publicDirectoryPath))
 
 app.get('/verse', (req, res) => {
     res.send(currentVerse)
+})
+
+app.get('/copyright', (req, res) => {
+    res.redirect('/copyright.html')
 })
 
 app.get('/*', (req, res) => {

@@ -35,17 +35,17 @@
 }
 
 @keyframes opacity-up {
-    0%   { opacity: 0%; }
-    25%  { opacity: 15%; }
-    50%  { opacity: 35%; }
-    75%  { opacity: 70%; }
+    0%   { opacity: 0%;   }
+    25%  { opacity: 0%;   }
+    50%  { opacity: 25%;  }
+    75%  { opacity: 50%;  }
     100% { opacity: 100%; }
 }
 
 @keyframes opacity-down {
     0%   { opacity: 100%; }
-    25%  { opacity: 85%; }
-    50%  { opacity: 65%; }
-    75%  { opacity: 30%; }
-    100% { opacity: 0%; }
+    25%  { opacity: 50%;  }
+    50%  { opacity: 25%;  }
+    75%  { opacity: 0%;   }
+    100% { opacity: 0%;   }
 }
