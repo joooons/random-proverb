@@ -20,13 +20,7 @@ if (process.env.NODE_ENV === 'production') {
             next()
         }
     })
-} else {
-    app.use((req, res, next) => {
-        sdfsdf
-    })
-}
-
-
+} 
 
 
 app.get('/verse', (req, res) => {
