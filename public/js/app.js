@@ -22,8 +22,8 @@ const getVerse = () => {
     fetch('/verse')
         .then(response => response.json())
         .then(({ index, time, chapter, verse, text }) => {
-            // if (currentVerse.text === text) return console.log('New verse not ready yet')
-            // console.log('New verse acquired')
+            if (currentVerse.text === text) return // console.log('New verse not ready yet')
+            //console.log('New verse acquired')
             currentVerse.text = text
             currentVerse.time = time
             blockWriteVerse(`Proverb ${chapter}:${verse}`, text, `Proverbs+${chapter}`)
