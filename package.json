@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

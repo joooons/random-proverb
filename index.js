@@ -1,20 +1,17 @@
 const express = require('express')
 const path = require('path')
-const refArray = require('./utils/random')
+const { startTheClock, currentVerse } = require('./utils/time')
 
 const app = express()
 const port = process.env.PORT
 const publicDirectoryPath = path.join(__dirname, "./public")
 
+startTheClock()
+
 app.use(express.static(publicDirectoryPath))
 
-app.get('/randomize', (req, res) => {
-    var index = req.query.num % refArray.length
-    res.send({
-        chapter: refArray[index].chapter,
-        verse: refArray[index].verse,
-        apiKey: process.env.API_KEY
-    })
+app.get('/verse', (req, res) => {
+    res.send(currentVerse)
 })
 
 app.get('/*', (req, res) => {

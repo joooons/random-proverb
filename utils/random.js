@@ -20,17 +20,27 @@ const rangesOfProverbs = {
 }
 
 const arrayOfReferences = () => {
+    // This generates an array of objects, each containing chapter and verse,
+    // based on rangesOfProverbs. The resulting array has length that corresponds
+    // to the number of single proverbs. Each item in array represents a single proverb.
     const arr = []
     Object.keys(rangesOfProverbs).forEach(key => {
         let chapter = key.match(/\d+/)[0]
         let [start, end] = rangesOfProverbs[key].match(/\d+/g)
         for (let verse = start; verse <= end; verse++) {
             arr.push({
-                chapter,
+                chapter: parseInt(chapter),
                 verse: parseInt(verse)
             })
         }
     })
+    return arr
+}
+
+const shuffledArray = (arr) => {
+    // This shuffles the input argument array.
+    // This way of randomizing ensures that all proverbs appear at least once
+    // before the cycle is repeated.
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * i)
         const temp = arr[i]
@@ -40,4 +50,4 @@ const arrayOfReferences = () => {
     return arr
 }
 
-module.exports = arrayOfReferences()
+module.exports = shuffledArray(arrayOfReferences())

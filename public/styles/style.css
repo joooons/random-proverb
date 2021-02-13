@@ -1,7 +1,6 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Fraunces&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fraunces&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
 
 
 a {
@@ -9,9 +8,13 @@ a {
     color: black;
 }
 
+p {
+    padding: 20px;
+}
 
 body {
-    font-family: 'Fraunces', serif;
+    /* font-family: 'Fraunces', serif; */
+    font-family: 'Truculenta', sans-serif;
 }
 
 header {
@@ -19,36 +22,52 @@ header {
     padding: 20px 0;
     margin:auto;
     width: 100%;
-    font-size: large;
-    color:darkcyan;
+    height: 64px;
+    font-size: x-large;
     text-align: center;
-}
-
-#container {
-    background:rgb(198, 240, 253);
-    display: flex;
-    flex-flow: column;
-    justify-content:flex-start;
-    align-items: center;
-    align-content: flex-start;
-    padding: 30px 30px;
-    font-size: x-large;   
-}
-
-#container div{
-    /* background: lightgreen; */
-    margin-bottom: 10px;
-    max-width: 500px;
-    text-align: center;
-}
-
-#time {
-    font-family: 'Roboto Mono', monospace;
 }
 
 footer {
     position: absolute;
+    background-color: gold;
     bottom: 0;
+    left: 0;
     right: 0;
-    padding: 16px;
+    font-size: medium;
+    padding: 20px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
 }
+
+
+#container {
+    background:rgb(198, 240, 253);
+    background-color: gold;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row;
+    justify-content:center;
+    height: 5px;
+    font-size: x-large;   
+}
+
+#container > div {
+    box-sizing: border-box;
+    padding: 40px 20px;
+    width: 70vw;
+    text-align: center;
+}
+
+
+#time {
+    font-family: 'Roboto Mono', monospace;
+    font-size: small;
+    color: gray;
+    padding: 5px;
+}
+
+
+
