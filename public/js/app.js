@@ -12,11 +12,7 @@ const interval = 5
 
 $title.textContent = `A Random Proverb Every ${(interval != 1) ? interval : ''} Minute${(interval != 1) ? 's' : ''}`
 $title.classList.add('unhide')
-setTimeout(() => {
-    $time.classList.add('unhide')
-}, 2000)
-
-
+setTimeout(() => { $time.classList.add('unhide') }, 2000)
 
 const getVerse = () => {
     fetch('/verse')
@@ -54,8 +50,6 @@ const getEpochTime = () => {
     return Math.floor(new Date().getTime() / 1000 / 60 / interval)
 }
 
-
-
 const repeat = () => {
     setTimeout(() => {
         showTimer()
@@ -64,4 +58,3 @@ const repeat = () => {
     }, 100)
 }
 repeat()
-

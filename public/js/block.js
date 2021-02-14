@@ -3,7 +3,7 @@
 
 const blockWriteVerse = (reference, text, link) => {
     let elems = document.querySelectorAll('#container > div')
-    elems[1].innerHTML = `<div><a href="https://www.esv.org/${link}/" target="_blank">${reference} <small>ESV</small></a></div><div>${text}</div>`
+    elems[1].innerHTML = `<div><a href="https://www.esv.org/${link}/" target="_blank">${reference} <small>(ESV)</small></a></div><div>${text}</div>`
 }
 
 const blockNextSide = () => {

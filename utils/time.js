@@ -30,10 +30,16 @@ const updateVerse = ({ chapter, verse }) => {
         headers: { Authorization: 'Token ' + process.env.API_KEY }
     }
     request(options, (error, response, body) => {
-        currentVerse.chapter = chapter
-        currentVerse.verse = verse
-        currentVerse.text = JSON.parse(body).passages[0].replace(/^\s+|\s+$/gm, '').replace(/\n/, ' ')
-        // currentVerse.text = JSON.parse(body).passages[0]
+        try {
+            currentVerse.chapter = chapter
+            currentVerse.verse = verse
+            currentVerse.text = JSON.parse(body).passages[0].replace(/^\s+|\s+$/gm, '').replace(/\n/, ' ')
+        } catch (e) {
+            currentVerse.chapter = 32
+            currentVerse.verse = 1
+            currentVerse.text = 'For the man who suddenly loses internet connection, there is much sorrow and confusion. (Note: this verse is missing in all manuscripts)'
+        }
+
     })
 }
 

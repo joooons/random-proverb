@@ -18,23 +18,14 @@ if (process.env.NODE_ENV === 'production') {
             next()
         }
     })
-} 
+}
 
 app.use(express.static(publicDirectoryPath))
 
+app.get('/verse', (req, res) => { res.send(currentVerse) })
 
-app.get('/verse', (req, res) => {
-    res.send(currentVerse)
-})
+app.get('/copyright', (req, res) => { res.redirect('/copyright.html') })
 
-app.get('/copyright', (req, res) => {
-    res.redirect('/copyright.html')
-})
+app.get('/*', (req, res) => { res.redirect('/404.html') })
 
-app.get('/*', (req, res) => {
-    res.redirect('/404.html')
-})
-
-app.listen(port, () => {
-    console.log('Server up on port', port)
-})
+app.listen(port, () => { console.log('Server up on port', port) })
