@@ -12,7 +12,9 @@ const rangesOfProverbs = {
     "20": "1-30",
     "21": "1-31",
     "22": "1-16",
-    "26": "1-28",
+    "26a": "1-17",
+    "26b": "20-23",
+    "26c": "27-28",
     "27a": "1-14",
     "27b": "17-22",
     "28": "1-28",
@@ -50,4 +52,6 @@ const shuffledArray = (arr) => {
     return arr
 }
 
-module.exports = shuffledArray(arrayOfReferences())
+const refArray = shuffledArray(arrayOfReferences())
+
+module.exports = refArray
