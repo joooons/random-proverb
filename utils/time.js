@@ -9,13 +9,15 @@ const startTheClock = () => {
         const time = getEpochTime()
         const index = time % (refArray.length)
         if (currentVerse.index !== index) {
-            updateVerse(refArray[index])
             currentVerse.index = index
-            currentVerse.time = time
+            currentVerse.timeStamp = time * 60 * interval
+            currentVerse.nextTimeStamp = (time + 1) * 60 * interval
+            updateVerse(refArray[index])
         }
         startTheClock()
     }, 100)
 }
+startTheClock()
 
 const getEpochTime = () => {
     // Whatever the interval is, getEpochTime() returns the number of that
@@ -39,13 +41,9 @@ const updateVerse = ({ chapter, verse }) => {
             currentVerse.verse = 1
             currentVerse.text = 'For the man who suddenly loses internet connection, there is much sorrow and confusion. (Note: this verse is missing in all manuscripts)'
         }
-
     })
 }
 
 
 
-module.exports = {
-    startTheClock,
-    currentVerse
-}
+module.exports = currentVerse

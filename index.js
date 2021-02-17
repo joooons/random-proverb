@@ -1,12 +1,37 @@
 const express = require('express')
+const http = require('http')
 const path = require('path')
-const { startTheClock, currentVerse } = require('./utils/time')
+
+const socketio = require('socket.io')
+
+const currentVerse = require('./utils/time')
 
 const app = express()
+const server = http.createServer(app)
+const io = socketio(server)
 const port = process.env.PORT
 const publicDirectoryPath = path.join(__dirname, "./public")
 
-startTheClock()
+
+
+
+
+
+
+
+
+
+io.on('connection', (socket) => {
+    console.log('new connection made')
+    io.emit('message', 'starting')
+
+    socket.on('check for new verse', () => {
+        socket.emit('new verse', currentVerse)
+    })
+
+})
+
+
 
 
 
@@ -28,4 +53,4 @@ app.get('/copyright', (req, res) => { res.redirect('/copyright.html') })
 
 app.get('/*', (req, res) => { res.redirect('/404.html') })
 
-app.listen(port, () => { console.log('Server up on port', port) })
+server.listen(port, () => { console.log('Server up on port', port) })

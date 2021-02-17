@@ -1,3 +1,5 @@
+const socket = io()
+
 const $title = document.querySelector('#title')
 const $time = document.querySelector('#time')
 const $reference = document.querySelector('#reference')
@@ -14,18 +16,24 @@ $title.textContent = `A Random Proverb Every ${(interval != 1) ? interval : ''} 
 $title.classList.add('unhide')
 setTimeout(() => { $time.classList.add('unhide') }, 2000)
 
+
+
 const getVerse = () => {
-    fetch('/verse')
-        .then(response => response.json())
-        .then(({ index, time, chapter, verse, text }) => {
-            if (currentVerse.text === text) return // console.log('New verse not ready yet')
-            //console.log('New verse acquired')
-            currentVerse.text = text
-            currentVerse.time = time
-            blockWriteVerse(`Proverb ${chapter}:${verse}`, text, `Proverbs+${chapter}`)
-            blockNextSide()
-        })
+    socket.emit('check for new verse')
 }
+
+socket.on('new verse', (data) => {
+    // console.log('checking...')
+    if (currentVerse.text === data.text) return // console.log('New verse not ready yet')
+    //console.log('New verse acquired')
+    currentVerse.text = data.text
+    currentVerse.time = data.timeStamp
+    blockWriteVerse(`Proverb ${data.chapter}:${data.verse}`, data.text, `Proverbs+${data.chapter}`)
+    blockNextSide()
+    console.log('new verse')
+})
+
+
 
 const showTimer = () => {
     if (!currentVerse.time) { return }
@@ -50,6 +58,8 @@ const getEpochTime = () => {
     return Math.floor(new Date().getTime() / 1000 / 60 / interval)
 }
 
+
+
 const repeat = () => {
     setTimeout(() => {
         showTimer()
@@ -58,3 +68,8 @@ const repeat = () => {
     }, 100)
 }
 repeat()
+
+
+socket.on('message', (data) => {
+    console.log(data)
+})
