@@ -18,14 +18,14 @@
 .facing-left {
     animation: opacity-down 2s;
     transition-duration: 2s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-out;
     transform: rotate3d(0, 1, 0, 90deg);
 }
 
 .facing-center {
     animation: opacity-up 2s;
     transition-duration: 2s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in;
     transform: rotate3d(0, 1, 0, 0deg);
 }
 
@@ -37,15 +37,15 @@
 @keyframes opacity-up {
     0%   { opacity: 0%;   }
     25%  { opacity: 0%;   }
-    50%  { opacity: 25%;  }
-    75%  { opacity: 50%;  }
+    /* 50%  { opacity: 25%;  } */
+    /* 75%  { opacity: 50%;  } */
     100% { opacity: 100%; }
 }
 
 @keyframes opacity-down {
     0%   { opacity: 100%; }
     25%  { opacity: 50%;  }
-    50%  { opacity: 25%;  }
-    75%  { opacity: 0%;   }
+    /* 50%  { opacity: 25%;  } */
+    /* 75%  { opacity: 0%;   } */
     100% { opacity: 0%;   }
 }

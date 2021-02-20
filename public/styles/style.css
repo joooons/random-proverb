@@ -72,8 +72,9 @@ footer {
 #time {
     font-family: 'Roboto Mono', monospace;
     font-size: small;
-    color: gray;
+    color: #BBB;
     padding: 5px;
+    white-space: pre;
 }
 
 

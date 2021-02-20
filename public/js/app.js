@@ -28,9 +28,9 @@ socket.on('new verse', (data) => {
     //console.log('New verse acquired')
     currentVerse.text = data.text
     currentVerse.time = data.timeStamp
-    blockWriteVerse(`Proverb ${data.chapter}:${data.verse}`, data.text, `Proverbs+${data.chapter}`)
+    blockWriteVerse(`Proverbs ${data.chapter}:${data.verse}`, data.text, `Proverbs+${data.chapter}`)
     blockNextSide()
-    console.log('new verse')
+    // console.log('new verse')
 })
 
 
@@ -46,8 +46,10 @@ const showTimer = () => {
     if (count === duration) { count = 0 }
     const minutes = Math.floor(count / 60)
     const seconds = count - (minutes * 60)
-    if (minutes === 0) return $time.textContent = `next verse in ${seconds} seconds`
-    $time.textContent = `next verse in ${minutes} minutes and ${seconds} seconds`
+    const minplural = (minutes > 1) ? 's' : ''
+    const secplural = (seconds > 1) ? 's' : ' '
+    if (minutes === 0) return $time.textContent = `next verse in ${seconds} second${secplural}`
+    $time.textContent = `next verse in ${minutes} minute${minplural} and ${seconds} second${secplural}`
 }
 
 const getEpochTime = () => {
@@ -57,7 +59,6 @@ const getEpochTime = () => {
     // ...the count of how many 5 minute intervals passed since 1970.
     return Math.floor(new Date().getTime() / 1000 / 60 / interval)
 }
-
 
 
 const repeat = () => {

@@ -3,7 +3,6 @@ const http = require('http')
 const path = require('path')
 
 const socketio = require('socket.io')
-
 const currentVerse = require('./utils/time')
 
 const app = express()
@@ -14,26 +13,14 @@ const publicDirectoryPath = path.join(__dirname, "./public")
 
 
 
-
-
-
-
-
-
-
 io.on('connection', (socket) => {
-    console.log('new connection made')
-    io.emit('message', 'starting')
-
+    // console.log('new connection made')
+    // io.emit('message', 'starting')
     socket.on('check for new verse', () => {
         socket.emit('new verse', currentVerse)
     })
 
 })
-
-
-
-
 
 if (process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
