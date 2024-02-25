@@ -49,7 +49,7 @@ const showTimer = () => {
     const minplural = (minutes > 1) ? 's' : ''
     const secplural = (seconds > 1) ? 's' : ' '
     if (minutes === 0) return $time.textContent = `next verse in ${seconds} second${secplural}`
-    if (seconds === 0) return $time.textContent = `next verse in ${minutes} minute${minplural}`
+    if (seconds === 0) return $time.textContent = `next verse in ${minutes} minute${minplural}              `
     $time.textContent = `next verse in ${minutes} minute${minplural} and ${seconds} second${secplural}`
 }
 
