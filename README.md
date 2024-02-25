@@ -1,5 +1,9 @@
 # Random Proverb
 
-Try [Random Proverb](https://random-proverb.herokuapp.com/)
+[Random Proverb](https://proverbs.onrender.com/) displays a single random proverb from the book of Proverbs every 5 minutes. Not all proverbs are included. The randomly chosen proverbs are from chapters 10-22 and chapters 26-29. Proverbs that contain more than one verse were excluded. A proverb that was displayed once is not repeated until every proverb on the list has been displayed, after which the cycle resets. The verses were fetched from the [ESV API](https://api.esv.org/).
 
-Generates a random proverb onces every 5 minutes. The randomly generated proverb is not reused until all proverbs on the list appeared at least once.
+This project was made with `node.js`, `express`, `request`, and `socket.io`.
+
+# License
+
+ISC
