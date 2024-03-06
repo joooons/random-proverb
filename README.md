@@ -4,6 +4,8 @@
 
 This project was made with `node.js`, `express`, `request`, and `socket.io`.
 
+:warning: It may take a few minutes to load for the first time.
+
 ![screen](public/img/screencap.png)
 
 # License
